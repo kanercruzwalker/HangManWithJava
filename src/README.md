@@ -7,5 +7,7 @@ Data.txt file.
 
 Code needs to be refactored but is fully functional.
 
+The pseudocode for the application can be found commened out at the bottom of modulesWithJava.java
+
 
 

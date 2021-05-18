@@ -405,3 +405,364 @@ public class modulesWIthJava {
         }
     }
 }
+
+//---------------------------------------------------------------------------------------
+//Current Build Pseudocode
+//One Java Class
+//One Main Method
+//Multiple Other Methods
+
+//Java requires the following imports
+//        import java.io.File;
+//        import java.io.FileNotFoundException;
+//        import java.io.IOException;
+//        import java.nio.file.Files;
+//        import java.nio.file.Paths;
+//        import java.util.Scanner;
+//        import java.util.ArrayList;
+
+//The Following is pseudocode.
+//There may be syntactical differences than what is needed for a java application.
+//moduleWithJava.java file holds proper java syntax needed
+
+//-----------------------------------------------------------------
+//This is the main Method Section
+
+//Main Method
+    //Greet User, ask them if they want to play
+    //Call initialDisplay()
+
+    //Declare String secretWord = Call getSecretWord()
+    //Declare String encryptedWord = Call encryptWord(secretWord)
+    //Declare int incorrectGuessCounter = 0
+    //Declare ArrayList<String> lettersGuessedArray
+
+    //Call startGameDisplay(encryptedWOrd, incorrectGuessCounter, letterGuessArray)
+
+    //Game begins based on incorrectCounter && secretWord = encryptedWord
+    //While(incorrectGuessCounter < 6 && !secretWord.equals(encryptedWord))
+        //Declare char letterGuess = Call getInput(letterGuessed)
+        //Call addGuessToLettersGuessedArray(letterGuessed, lettersGuessedArray)
+        //Declare int frequencyOfLetterInWord = compareGuessToWord(letterGuessed, secretWord);
+        //Declare boolean guessValidity = validateGuess(frequencyOfLetterInWord)
+
+        //If (guessValidity){
+            //encryptedWord = Call correctGuessMade(secretWord, letterGuessed, encryptedWord)
+            //Call startGameDisplay(encryptedWord, incorrectGuessCounter, lettersGuessedArray)
+        //}
+        //else{
+            //incorrectGuessCounter = incorrectGuessMade(incorrectGuessCounter)
+        //}
+
+        //Call startGameDisplay(encryptedWord, incorrectGuessCounter, lettersGuessedArray)
+    //End While
+
+    //Player Lost Sequence
+    //If (incorrectGuessCounter == 6){
+        //Call gameOverLostDisplay(secretWord)
+        //Call playAgain(encryptedWord, incorrectGuessCounter, lettersGuessedArray)
+
+    // }
+
+    //Player Won Sequence
+    //If (encryptedWord.equals(secretWord.toLowerCase()) && incorrectGuessCounter < 6){
+        //Call gameOverWonDisplay(secretWord)
+        //Call playAgain(encryptedWord, incorrectGuessCounter, lettersGuessedNew)
+    // }
+
+//End Main
+
+//-----------------------------------------------------------------
+
+//Methods go above the Main Method in java.
+//For this documents purposes. All modules will be defined below main.
+//There are currently 14 Methods
+
+//-----------------------------------------------------------------
+
+//Method initialDisplay (){
+    //Display "Welcome to hang man!"
+    //Display "You are allowed 6 incorrect guessed"
+    //Display "Would you like to play?"
+    //Display "Enter (y) or (n) below"
+
+    //Declare char toPlayOrNotToPlay = Input[0].toLowerCase
+
+    //While (toPlayOrNotToPlay[0] != "y" && toPlayOrNotToPlay[0] != "n"){
+        //Display "Please enter a valid input (y) or (n)"
+        //toPlayOrNotToPlay = Input[0].toLowerCase
+    // }
+
+    //If (toPlayOrNotToPlay == "n"){
+        //Display "No worries. See you next time."
+        //Exit Program
+    // }
+
+    //If (toPlayOrNotToPlay == "y"){
+        //return
+    // }
+// }
+
+//-----------------------------------------------------------------
+
+//Method getSecretWord () {
+    //Declare String word = ""
+    //Declare File Object myFile from Data.txt
+
+    //Try{
+        //Declare FileObject = new File("src/Data.txt")
+        //Declare myReader = newScanner(FIleObject)
+
+        //while (myReader.hasNextLine()){
+            //String data = myReader.nextLine()
+        // }
+        //myReader.close()
+    // }
+
+    //Catch (FileNotFoundException e){
+        //Display "An error occurred."
+        //e.printStackTrace()
+    // }
+
+    //int count = 0;
+
+    //Try {
+        //Declare FileObject file = new File("src/Data.txt")
+        //Scanner sc = new Scanner(file)
+
+        //while (sc.hasNextLine()){
+            //sc.nextLine()
+            //count++
+        // }
+        //sc.close()
+    // }
+    //Catch (Exception e){
+        //e.getStackTrace()
+    // }
+
+    //Declare int randomLineNumber = Call Math.Random(0, count)
+    //Declare int n = randomLineNumber
+
+    //Try{
+        //Declare String line = File.readAllLines(Paths.get("src/Data.txt")).get(n)
+        //word = line.toLowerCase()
+    // }
+    //catch(IOException e){
+        //Display e
+    // }
+    //return word.toLowerCase();
+// }
+
+//-----------------------------------------------------------------
+
+//Method encryptWord (secretWord){
+    //Declare String encodedSecretWord = ""
+    //Declare int lengthOfWord = secretWord.length()
+
+    //for (int i = 0 ; i < lengthOfWord ; i++){
+        //encodedSecretWord = encodedSecretWord.concat("-")
+    // }
+    //return encodedSecretWord
+// }
+
+//-----------------------------------------------------------------
+
+//Method startGameDisplay(String encryptedWord, int incorrectGuessCounter, ArrayList<String> lettersGuessedNew){
+    //Display "-------------------"
+    //Call displayASCII(incorrectGuessCounter)
+    //Display "Guess the following word: " + encryptedWord
+    //Display "LettersGuessed: " + lettersGuessedArray
+    //Display "Incorrect Guess Count: " + incorrectGuessCounter
+    //Display "-------------------"
+// }
+
+//-----------------------------------------------------------------
+
+//Method getInput(ArrayList<String> lettersGuessedArray){
+    //Declare Scanner input = new Scanner(System.in)
+    //Display "Input a letter a-z"
+    //Declare char userInput = input[i]
+
+    //For (int i = 0 ; i < lettersGuessedArray.size() ; i++){
+        //While(lettersGuessedArray[i] == userInput.toString){
+            //Display "!==!==!==!==!==!==!==!==!==!"
+            //Display "You already guessed that letter."
+            //Display  "Please guess a new letter
+            //Set userInput = input[0]
+        // }
+    // }
+
+    //While (userInput < 'a' || userInput > 'z'){
+        //Display "Please enter a valid input a-z"
+        //userInput = input[0]
+    // }
+    //return userInput
+// }
+
+//-----------------------------------------------------------------
+
+//Method addGuessToLettersGuessed(char letterGuessed , ArrayList<String> lettersGuessed){
+    // lettersGuessed.add(letterGuessed.toString())
+// }
+
+//-----------------------------------------------------------------
+
+//Method compareGuessToWord(char letterGuessed , String secretWord){
+    //int timesLetterFound = 0
+    //For (int i = 0 ; i < secretWord.length() ; i++){
+        //If(secretWord[i] == letterGuessed){
+            //timesLetterFound++
+        // }
+    // }
+    //return
+// }
+
+//-----------------------------------------------------------------
+
+//Method validateGuess(int frequencyOfLetterInWord){
+    //if (frequencyOfLetterInWord > 0){
+        //return ture;
+    // }
+    //return false;
+// }
+
+//-----------------------------------------------------------------
+
+//Method correctGuessMade(String secretWord, char letterGuessed, String encryptedWord){
+    //Declare StringBuilder myString
+
+    //For (int i = 0 ; i < secretWord.length() ; i++){
+        //If (secretWord.charAt(i) == letterGuessed){
+            //myString.setCharAt(i, letterGuessed)
+        // }
+    // }
+    //return myString.toString()
+// }
+
+//-----------------------------------------------------------------
+
+//Method incorrectGuessMade(int incorrectGuessCounter){
+    //return incorrectGuessCounter + 1
+// }
+
+//-----------------------------------------------------------------
+
+//Method gameOverLostPrompt(){
+    //Display "==============="
+    //Display "GAME OVER"
+    //Display "You lost."
+// }
+
+//-----------------------------------------------------------------
+
+//Method playAgain(String encryptedWord, int incorrectGuessCounter, ArrayList<String>lettersGuessedArray){
+    //Declare Scanner input
+    //Display "----------------------------------------------------------------"
+    //Display "Would you like to play again?"
+    //Display "Input (y) or (n)"
+
+    //Declare char toPlayOrNotToPlay = input[0]
+
+    //While (toPlayOrNotToPlay[0] != 'y' && toPlayOrNotToPlay != 'n'){
+        //Display "Please enter a valid input (y) or (n)"
+        //Set toPlayOrNotToPlay = input[0]
+    // }
+
+    //If (toPlayOrNotToPlay = 'y'){
+        //Call resetVariablesAndPlay()
+        //startGameDisplay(encryptedWord, incorrectGuessCounter, lettersGuessedArray)
+    // }
+
+    //If (toPlayOrNotToPlay == 'n'){
+        //Display "----------------------------------------------------------------"
+        //Display "THanks for playing. See you next time."
+        //Call System.exit(0)
+    // }
+// }
+
+//-----------------------------------------------------------------
+
+//Method gameOverWonPrompt(){
+    //Display "==============="
+    //Display "GAME OVER"
+    //Display "YOU WON!"
+// }
+
+//-----------------------------------------------------------------
+
+//Method resetVariablesAndPlay(){
+    //Declare String secretWord = Call getSecretWord()
+    //Declare String encryptedWord = Call encryptedWord(secretWord)
+
+    //Declare int incorrectGuessCounter = 0
+    //Declare ArrayList<String> lettersGuessedArray
+
+    //call startGameDisplay(encryptedWord, incorrectGuessCounter, lettersGuessedArray)
+
+    //While (incorrectGuessCounter < 6 && secretWord != encryptedWord){
+        //Declare char letterGuessedMainNow = getInput(letterGuessedNew)
+        //Call addGuessToLettersGuessed(letterGuessedMainNow, lettersGuessedArray)
+
+        //Declare int frequencyOfLetterInWord = Call compareGuessToWOrd(letterGuessedMainNow, secretWord)
+        //Declare boolean guessValidity = validateGuess(frequencyOfLetterInWord)
+
+        //If (guessValidity){
+            //encryptedWord = correctGuessMade(secretWord, letterGuessedMainNow, encryptedWord)
+            //Call startGameDisplay(encryptedWord, incorrectGuessCounter, lettersGuessedNew)
+        // }
+        //Else{
+            //incorrectGuessCounter = incorrectGuessMade(incorrectGuessCounter)
+        // }
+        //Call startGameDisplay(encryptedWord, incorrectGuessCounter, lettersGuessedNew)
+    // }
+
+    //If (encryptedWord == 6){
+        //Call gameOverLostPrompt()
+        //Call playAgain(encryptedWord, incorrectGUesCounter, letterGuessedArray)
+    // }
+
+    //If (encryptedWord = secretWord.toLowerCase() && incorrectGuessCounter < 6){
+        //Call gameOverWonPrompt()
+        //Call playAgain(encryptedWord, incorrectGuessCounter, letterGuessedArray)
+    // }
+// }
+
+//-----------------------------------------------------------------
+
+//Method displayASCII (incorrectGuessCounter){
+    //Switch (incorrectGuessCounter){
+
+        //case 1:
+            //Display "\\O"
+            //Display " | "
+            //Display "/ \\"
+
+        //case 2:
+            //Display " O"
+            //Display " | "
+            //Display "/ \\"
+
+        //case 3:
+            //Display " O"
+            //Display " | "
+            //Display "/ "
+
+        //case 4:
+            //Display " O"
+            //Display " | "
+            //Display ""
+
+        //case 5:
+            //Display " O"
+            //Display " "
+            //Display ""
+
+        //case 6:
+            //Display "No More Lives"
+
+        //default:
+            //Display "\\O/"
+            //Display " | "
+            //Display "/ \\"
+    // }
+// }
