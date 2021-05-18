@@ -7,4 +7,8 @@ Data.txt file.
 
 Code needs to be refactored but is fully functional.
 
-The pseudocode for the application can be found in HangManPseudocode.txt file
+HangManPseudocode.txt file contains the Pseudocode for the application.
+
+modulesWithJava.java file contains a executable program in Java.
+
+Data.txt file contains the words that the modulesWithJava.java file pulls from. 
