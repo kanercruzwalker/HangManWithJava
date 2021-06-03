@@ -67,6 +67,7 @@ public class modulesWIthJava {
             System.out.println("================");
             System.out.println("GAME OVER");
             System.out.println("You lost.");
+            System.out.println("The word was : " + secretWord);
             //Call playAgain Method
             playAgain(encryptedWord , incorrectGuessCounter , lettersGuessedNew);
 
@@ -78,6 +79,7 @@ public class modulesWIthJava {
             System.out.println("================");
             System.out.println("GAME OVER");
             System.out.println("YOU WON!");
+            System.out.println("The word was : " + secretWord);
             //Call playAgain method
             playAgain(encryptedWord , incorrectGuessCounter , lettersGuessedNew );
         }
@@ -389,6 +391,7 @@ public class modulesWIthJava {
             System.out.println("================");
             System.out.println("GAME OVER");
             System.out.println("You lost.");
+            System.out.println("The word was : " + secretWord);
             //Call playAgainPrompt(encryptedWord, incorrectGuessCounter, lettersGuessedArray) method
             playAgain(encryptedWord , incorrectGuessCounter , lettersGuessedNew);
 
@@ -400,6 +403,7 @@ public class modulesWIthJava {
             System.out.println("================");
             System.out.println("GAME OVER");
             System.out.println("YOU WON!");
+            System.out.println("The word was : " + secretWord);
             //Call playAgainPrompt() method
             playAgain(encryptedWord , incorrectGuessCounter , lettersGuessedNew);
         }
